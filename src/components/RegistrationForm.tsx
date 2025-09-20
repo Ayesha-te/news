@@ -7,7 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 
 const RegistrationForm = () => {
   return (
-    <section className="py-20 bg-slate-100">
+    <section id="register" className="py-20 bg-slate-100 scroll-mt-24">
       <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
         <h2 className="text-4xl lg:text-5xl font-bold text-primary text-center mb-12">
           Register Your Interest

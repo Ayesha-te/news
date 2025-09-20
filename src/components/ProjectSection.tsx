@@ -4,7 +4,7 @@ import placeholderImage from '@/assets/hero-background.jpg'; // Replace with you
 
 const ProjectSection = () => {
   return (
-    <section className="py-20 bg-background">
+    <section id="projects" className="py-20 bg-background scroll-mt-24">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}

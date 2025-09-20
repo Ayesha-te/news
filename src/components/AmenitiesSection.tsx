@@ -13,7 +13,7 @@ const amenities = [
   { title: 'Kids Play Area', img: play, key: 'kids-play-area' },
   { title: 'Shopping Mall', img: kunjwalImage, key: 'shopping-mall' },
   { title: 'Sports Complex', img: sports, key: 'sports-complex' },
-  { title: '24/7 Security & Surveillance', img: security, key: 'security' },
+  { title: '24/7 Security', img: security, key: 'security' },
   { title: 'Park', img: park, key: 'park' },
 ];
 
@@ -43,7 +43,7 @@ const AmenitiesSection = () => {
   };
 
   return (
-    <section className="py-16 bg-[#F9F9F9] relative overflow-hidden">
+    <section id="amenities" className="py-16 bg-[#F9F9F9] relative overflow-hidden scroll-mt-24">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-2">

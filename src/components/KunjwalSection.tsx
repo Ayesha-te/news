@@ -3,7 +3,7 @@ import kunjwalImage from "@/assets/hero-background.jpg"; // replace with your ac
 
 const KunjwalSection = () => {
   return (
-    <section className="py-20 bg-white">
+    <section id="kunjwal" className="py-20 bg-white scroll-mt-24">
       <div className="container mx-auto px-6 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
         <div>

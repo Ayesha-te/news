@@ -1,17 +1,9 @@
-// WhatsAppChatButton.jsx
+// src/components/WhatsAppChatButton.jsx
 import React from "react";
 
-/**
- * Props:
- *  - phone: string (international number, no +, e.g. "923001234567")
- *  - message: string (optional default text)
- *  - bottom, right: position in px or tailwind-friendly values (optional)
- */
 const WhatsAppChatButton = ({
-  phone = "923001234567",
-  message = "Hello! I saw your site and want to chat.",
-  bottom = "28px",
-  right = "28px",
+  phone = "923111786602",
+  message = "Hello! I'm interested in Kunjwal City plots.",
 }) => {
   const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
@@ -23,130 +15,66 @@ const WhatsAppChatButton = ({
         rel="noreferrer noopener"
         aria-label="Chat on WhatsApp"
         className="whatsapp-float"
-        style={{ bottom, right }}
       >
-        {/* Green circular button with WhatsApp icon */}
-        <div className="wa-circle" aria-hidden>
-          <svg viewBox="0 0 24 24" className="wa-icon" role="img" focusable="false">
-            <path fill="currentColor" d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.39 0 0 5.39 0 12a11.6 11.6 0 0 0 1.62 6L0 24l6.45-1.59A11.94 11.94 0 0 0 12 24c6.61 0 12-5.39 12-12 0-1.6-.32-3.12-.9-4.5zM12 21.5c-1.24 0-2.46-.3-3.55-.88l-.25-.13-3.83.95.9-3.73-.15-.27A9.03 9.03 0 0 1 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z"/>
-            <path fill="#fff" d="M17.1 14.7c-.3-.1-1.7-.8-1.9-.9-.2-.1-.4-.1-.6.1l-.6.8c-.1.2-.5.2-.9 0-1.3-.6-2.2-1.7-2.9-3.1-.1-.2 0-.4.1-.5l.6-.6c.1-.1.2-.4.1-.7-.1-.1-.8-2-.9-2.4-.1-.3-.3-.5-.6-.5H8.6c-.3 0-.6.2-.8.5-.2.3-.8 1.7-.8 3.4s.9 3.9 1 4.2c.1.3 1.6 2.7 3.9 3.8 2.3 1.1 3.2.9 3.6.9.4 0 1.4-.5 1.6-1 .2-.5.2-.9.1-1 .1-.1.6-.4.6-.7.1-.3.1-.6 0-.7-.1-.2-.6-.3-.9-.4z"/>
+        <div className="wa-circle">
+          {/* WhatsApp logo */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="34"
+            height="34"
+            fill="white"
+            viewBox="0 0 24 24"
+            className="wa-logo"
+          >
+            <path d="M12.004 2c-5.514 0-10 4.486-10 10 0 1.771.469 3.473 1.357 4.978L2 22l5.176-1.328A9.933 9.933 0 0 0 12.004 22c5.514 0 10-4.486 10-10s-4.486-10-10-10zm.003 18c-1.592 0-3.14-.422-4.492-1.219l-.321-.187-3.07.787.82-2.994-.209-.34A7.943 7.943 0 0 1 4.004 12c0-4.411 3.589-8 8.003-8s8.003 3.589 8.003 8-3.589 8-8.003 8zm4.446-5.746c-.242-.121-1.436-.707-1.657-.787-.222-.08-.383-.121-.544.121-.16.242-.625.787-.767.949-.141.162-.283.182-.525.061-.242-.121-1.023-.377-1.949-1.201-.72-.641-1.207-1.433-1.348-1.676-.141-.242-.015-.373.106-.494.11-.11.242-.283.363-.424.121-.141.161-.242.242-.403.081-.162.04-.303-.02-.424-.061-.121-.544-1.312-.746-1.795-.196-.471-.396-.407-.544-.415h-.465c-.162 0-.424.061-.645.303-.222.242-.846.827-.846 2.018 0 1.191.866 2.344.987 2.506.121.162 1.705 2.6 4.134 3.641.578.25 1.029.4 1.38.511.58.185 1.107.159 1.523.096.465-.07 1.436-.586 1.639-1.152.202-.566.202-1.051.141-1.152-.06-.101-.22-.162-.461-.283z"/>
           </svg>
-        </div>
-
-        {/* Cartoon-like chat bubble with 3 animated dots */}
-        <div className="wa-cartoon" aria-hidden>
-          <div className="wa-hand">👋</div>
-          <div className="wa-bubble">
-            <span className="dot d1" />
-            <span className="dot d2" />
-            <span className="dot d3" />
-          </div>
         </div>
       </a>
 
-      {/* Styles: paste into global CSS if you prefer */}
       <style>{`
         .whatsapp-float {
           position: fixed;
+          right: 20px;
+          bottom: 20px;
           z-index: 9999;
-          display: inline-flex;
+          display: flex;
           align-items: center;
-          gap: 10px;
           text-decoration: none;
-          transform: translateZ(0);
         }
 
         .wa-circle {
-          width: 62px;
-          height: 62px;
-          border-radius: 999px;
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          background: #25D366;
+          box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
           display: flex;
           align-items: center;
           justify-content: center;
-          background: linear-gradient(180deg, #25D366 0%, #128C7E 100%);
-          box-shadow: 0 8px 24px rgba(18, 140, 126, 0.25);
-          transition: transform 180ms ease, box-shadow 180ms ease;
+          position: relative;
+          transition: transform 0.3s ease;
         }
 
         .whatsapp-float:hover .wa-circle {
-          transform: translateY(-6px) scale(1.03);
-          box-shadow: 0 16px 36px rgba(18, 140, 126, 0.28);
+          transform: scale(1.1);
+          box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
         }
 
-        .wa-icon {
-          width: 30px;
-          height: 30px;
-          color: white;
+        .wa-logo {
+          position: relative;
+          z-index: 2;
         }
 
-        .wa-cartoon {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          pointer-events: none;
-        }
-
-        /* little waving hand */
-        .wa-hand {
-          font-size: 18px;
-          margin-bottom: 6px;
-          transform-origin: 50% 100%;
-          animation: wave 1600ms infinite ease-in-out;
-        }
-
-        @keyframes wave {
-          0% { transform: rotate(0deg); }
-          15% { transform: rotate(-12deg); }
-          30% { transform: rotate(10deg); }
-          45% { transform: rotate(-8deg); }
-          60% { transform: rotate(6deg); }
-          100% { transform: rotate(0deg); }
-        }
-
-        /* chat bubble */
-        .wa-bubble {
-          width: 56px;
-          height: 34px;
-          background: white;
-          border-radius: 18px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 8px 26px rgba(0,0,0,0.08);
-          transform-origin: center;
-          animation: float 2200ms infinite ease-in-out;
-        }
-
-        @keyframes float {
-          0% { transform: translateY(0); }
-          50% { transform: translateY(-6px); }
-          100% { transform: translateY(0); }
-        }
-
-        .dot {
-          display: inline-block;
-          width: 7px;
-          height: 7px;
-          margin: 0 4px;
-          background: #25D366;
-          border-radius: 50%;
-          opacity: 0.95;
-        }
-
-        .d1 { animation: dot-anim 1100ms infinite; }
-        .d2 { animation: dot-anim 1100ms infinite 160ms; }
-        .d3 { animation: dot-anim 1100ms infinite 320ms; }
-
-        @keyframes dot-anim {
-          0% { transform: translateY(0) scale(1); opacity: 0.5; }
-          50% { transform: translateY(-6px) scale(1.1); opacity: 1; }
-          100% { transform: translateY(0) scale(1); opacity: 0.5; }
-        }
-
-        /* small responsive adjustment */
-        @media (max-width: 520px) {
-          .wa-cartoon { display: none; } /* keep mobile simple */
-          .wa-circle { width: 56px; height: 56px; }
+        @media (max-width: 768px) {
+          .wa-circle {
+            width: 60px;
+            height: 60px;
+          }
+          
+          .wa-logo {
+            width: 28px;
+            height: 28px;
+          }
         }
       `}</style>
     </>

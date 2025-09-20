@@ -3,14 +3,14 @@ import placeholderImage from "@/assets/ays.png"; // replace with your image late
 
 const AboutSection = () => {
   return (
-    <section className="relative py-16 bg-black">
+    <section id="about" className="relative py-16 bg-black scroll-mt-24">
       <div className="container mx-auto px-6 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
         <div>
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-primary">
 AYS Developers
           </h2>
-          <p className="text-lg leading-relaxed text-primary space-y-4">
+          <p className="text-white leading-relaxed text-primary space-y-4">
             Kunjwal City, Gujrat is proudly developed by AYS Developers (Pvt.) Ltd., a trusted name in the Pakistani real estate sector. Known for their commitment to quality, integrity, and long-term value, AYS Developers continue to set new standards in residential and commercial development.
             <br /><br />
             The company is led by Mr. Amjad and Mr. Yahya Amjad, whose leadership brings a visionary approach to urban development. With a focus on customer satisfaction, modern infrastructure, and community-driven planning, AYS Developers (Pvt.) Ltd. ensures that every project reflects excellence, transparency, and reliability.
