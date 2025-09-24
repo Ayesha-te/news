@@ -34,7 +34,7 @@ const HeroSection = () => {
     dots: true,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 5000, // 5s
+    autoplaySpeed: 2000, // 5s
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
