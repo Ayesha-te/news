@@ -98,7 +98,7 @@ const RegistrationForm = () => {
                 type="text"
                 value={formData.name}
                 onChange={(e) => handleChange("name", e.target.value)}
-                className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none"
+                className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none text-black"
               />
               {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
             </div>
@@ -112,7 +112,7 @@ const RegistrationForm = () => {
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => handleChange("phone", e.target.value)}
-                className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none"
+                className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none text-black"
               />
               {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
             </div>
@@ -128,7 +128,7 @@ const RegistrationForm = () => {
               type="email"
               value={formData.email}
               onChange={(e) => handleChange("email", e.target.value)}
-              className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none"
+              className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none text-black"
             />
             {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
           </div>
@@ -165,7 +165,7 @@ const RegistrationForm = () => {
                 type="text"
                 value={formData.city}
                 onChange={(e) => handleChange("city", e.target.value)}
-                className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none"
+                className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none text-black"
               />
               {errors.city && <p className="text-red-500 text-sm">{errors.city}</p>}
             </div>
@@ -180,7 +180,7 @@ const RegistrationForm = () => {
               id="message"
               value={formData.message}
               onChange={(e) => handleChange("message", e.target.value)}
-              className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none min-h-[100px] resize-none"
+              className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none min-h-[100px] resize-none text-black"
             />
             {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
           </div>
