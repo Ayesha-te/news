@@ -1,5 +1,5 @@
 import React from "react";
-import kunjwalImage from "@/assets/hero-background.jpg"; // replace with your actual image file
+import kunjwalImage from "@/assets/New/6.jpg"; // replace with your actual image file
 
 const KunjwalSection = () => {
   return (
@@ -14,7 +14,7 @@ const KunjwalSection = () => {
             <p className="text-black"> 
               Kunjwal City Gujrat is a premium, master-planned residential
               community, strategically located at one of the most accessible and
-              desirable locations in Gujrat, Punjab. Developed across 198.7
+              desirable locations in Gujrat, Punjab. Developed across 200+
               kanals, this gated community is designed to offer a modern lifestyle
               in a secure and serene environment.
             </p>

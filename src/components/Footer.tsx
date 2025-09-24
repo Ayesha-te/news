@@ -2,7 +2,7 @@ import React from 'react';
 import { Facebook, Instagram, Youtube, Linkedin, Home, ChevronUp } from 'lucide-react';
 import paymentPdf from "@/assets/payment.pdf";
 import mapPdf from "@/assets/map.pdf";
-import mapThumb from "@/assets/images.jpg";
+import mapThumb from "@/assets/New/1.jpg";
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
@@ -129,7 +129,7 @@ Mon - Sun: 9:00 AM - 6:00 PM                </p>
               <a href="https://www.facebook.com/profile.php?id=61579390076883" className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
                 <Facebook className="w-5 h-5 text-white" />
               </a>
-              <a href="https://www.facebook.com/profile.php?id=61579390076883" className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-500 rounded-full flex items-center justify-center hover:from-purple-700 hover:to-pink-600 transition-colors">
+              <a href="https://www.instagram.com/kunjwalcity.gujrat?igsh=MW02NzUxMWxqMHlkMw==" className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-500 rounded-full flex items-center justify-center hover:from-purple-700 hover:to-pink-600 transition-colors">
                 <Instagram className="w-5 h-5 text-white" />
               </a>
              
