@@ -13,7 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
-    fullName: "",
+    name: "",      // ✅ backend expects this
     phone: "",
     email: "",
     city: "",
@@ -25,13 +25,13 @@ const RegistrationForm = () => {
 
   const handleChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
-    setErrors((prev) => ({ ...prev, [field]: "" })); // clear error when typing
+    setErrors((prev) => ({ ...prev, [field]: "" }));
   };
 
   const validateForm = () => {
     let newErrors: { [key: string]: string } = {};
 
-    if (!formData.fullName.trim()) newErrors.fullName = "Full name is required";
+    if (!formData.name.trim()) newErrors.name = "Full name is required";
     if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
     if (!formData.email.trim()) newErrors.email = "Email is required";
     if (!formData.country) newErrors.country = "Country is required";
@@ -46,11 +46,36 @@ const RegistrationForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log("Form submitted:", formData);
-      // TODO: send to Cloudflare or API
+      try {
+        const res = await fetch("http://localhost:3000/api/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (res.ok) {
+          alert("Form submitted successfully!");
+          setFormData({
+            name: "",
+            phone: "",
+            email: "",
+            city: "",
+            country: "",
+            message: "",
+          });
+        } else {
+          const data = await res.json();
+          alert(data.error || "Something went wrong!");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Failed to connect to server.");
+      }
     }
   };
 
@@ -65,29 +90,21 @@ const RegistrationForm = () => {
           {/* Full Name & Phone */}
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-2">
-              <Label
-                htmlFor="fullName"
-                className="text-lg text-primary font-medium"
-              >
+              <Label htmlFor="name" className="text-lg text-primary font-medium">
                 Full name *
               </Label>
               <Input
-                id="fullName"
+                id="name"
                 type="text"
-                value={formData.fullName}
-                onChange={(e) => handleChange("fullName", e.target.value)}
-                className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none text-foreground placeholder:text-muted-foreground focus:border-primary"
+                value={formData.name}
+                onChange={(e) => handleChange("name", e.target.value)}
+                className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none"
               />
-              {errors.fullName && (
-                <p className="text-red-500 text-sm">{errors.fullName}</p>
-              )}
+              {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
             </div>
 
             <div className="space-y-2">
-              <Label
-                htmlFor="phone"
-                className="text-lg text-primary font-medium"
-              >
+              <Label htmlFor="phone" className="text-lg text-primary font-medium">
                 Phone No. *
               </Label>
               <Input
@@ -95,20 +112,15 @@ const RegistrationForm = () => {
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => handleChange("phone", e.target.value)}
-                className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none text-foreground placeholder:text-muted-foreground focus:border-primary"
+                className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none"
               />
-              {errors.phone && (
-                <p className="text-red-500 text-sm">{errors.phone}</p>
-              )}
+              {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
             </div>
           </div>
 
           {/* Email */}
           <div className="space-y-2">
-            <Label
-              htmlFor="email"
-              className="text-lg text-primary font-medium"
-            >
+            <Label htmlFor="email" className="text-lg text-primary font-medium">
               Email Address *
             </Label>
             <Input
@@ -116,25 +128,17 @@ const RegistrationForm = () => {
               type="email"
               value={formData.email}
               onChange={(e) => handleChange("email", e.target.value)}
-              className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none text-foreground placeholder:text-muted-foreground focus:border-primary"
+              className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none"
             />
-            {errors.email && (
-              <p className="text-red-500 text-sm">{errors.email}</p>
-            )}
+            {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
           </div>
 
           {/* Country */}
           <div className="space-y-2">
-            <Label
-              htmlFor="country"
-              className="text-lg text-primary font-medium"
-            >
+            <Label htmlFor="country" className="text-lg text-primary font-medium">
               Country *
             </Label>
-            <Select
-              onValueChange={(value) => handleChange("country", value)}
-              value={formData.country}
-            >
+            <Select onValueChange={(value) => handleChange("country", value)} value={formData.country}>
               <SelectTrigger className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none text-black">
                 <SelectValue placeholder="Select Country" />
               </SelectTrigger>
@@ -147,18 +151,13 @@ const RegistrationForm = () => {
                 <SelectItem value="canada">Canada</SelectItem>
               </SelectContent>
             </Select>
-            {errors.country && (
-              <p className="text-red-500 text-sm">{errors.country}</p>
-            )}
+            {errors.country && <p className="text-red-500 text-sm">{errors.country}</p>}
           </div>
 
           {/* City (Only if Pakistan) */}
           {formData.country === "pakistan" && (
             <div className="space-y-2">
-              <Label
-                htmlFor="city"
-                className="text-lg text-primary font-medium"
-              >
+              <Label htmlFor="city" className="text-lg text-primary font-medium">
                 City *
               </Label>
               <Input
@@ -166,31 +165,24 @@ const RegistrationForm = () => {
                 type="text"
                 value={formData.city}
                 onChange={(e) => handleChange("city", e.target.value)}
-                className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none text-foreground placeholder:text-muted-foreground focus:border-primary"
+                className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none"
               />
-              {errors.city && (
-                <p className="text-red-500 text-sm">{errors.city}</p>
-              )}
+              {errors.city && <p className="text-red-500 text-sm">{errors.city}</p>}
             </div>
           )}
 
           {/* Message */}
           <div className="space-y-2">
-            <Label
-              htmlFor="message"
-              className="text-lg text-primary font-medium"
-            >
+            <Label htmlFor="message" className="text-lg text-primary font-medium">
               Message *
             </Label>
             <Textarea
               id="message"
               value={formData.message}
               onChange={(e) => handleChange("message", e.target.value)}
-              className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none text-foreground placeholder:text-muted-foreground focus:border-primary min-h-[100px] resize-none"
+              className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none min-h-[100px] resize-none"
             />
-            {errors.message && (
-              <p className="text-red-500 text-sm">{errors.message}</p>
-            )}
+            {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
           </div>
 
           {/* Submit Button */}

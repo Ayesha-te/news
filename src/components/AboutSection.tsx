@@ -8,7 +8,7 @@ const AboutSection = () => {
         {/* Left Content */}
         <div>
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-primary">
-            AYS Developers (Pvt.) Ltd. – Building Trust, Creating Value
+            AYS Developers (Pvt.) Ltd Building Trust, Creating Value
           </h2>
           <p className="text-white leading-relaxed text-primary space-y-4">
             Kunjwal City, Gujrat is proudly developed by AYS Developers (Pvt.)

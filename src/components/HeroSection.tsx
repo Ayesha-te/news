@@ -5,9 +5,9 @@ import "slick-carousel/slick/slick-theme.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import hero1 from "../assets/New/6.jpg";
-import hero2 from "../assets/New/22.jpg";
+import hero2 from "../assets/inf_204_kohat-sports-complex-3_ih.jpg";
 import hero3 from "../assets/New/15.jpg";
-import hero4 from "../assets/New/1.jpg";
+import hero4 from "../assets/hero-background.jpg";
 
 // Custom Next Arrow
 const NextArrow = ({ onClick }: any) => (
@@ -34,7 +34,7 @@ const HeroSection = () => {
     dots: true,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 2000, // 5s
+    autoplaySpeed: 4000, // 5s
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -45,6 +45,13 @@ const HeroSection = () => {
   };
 
   const images = [hero1, hero2, hero3, hero4];
+
+  const handleScroll = () => {
+    const section = document.getElementById("register");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section className="relative min-h-screen overflow-hidden">
@@ -58,10 +65,23 @@ const HeroSection = () => {
               {/* Overlay */}
               <div className="absolute inset-0 bg-black/40"></div>
 
-              {/* Centered Text */}
-              <h1 className="relative z-10 text-white text-5xl lg:text-7xl font-bold tracking-wide drop-shadow-lg text-center">
-                Kunjwal City
-              </h1>
+              {/* Centered Text & CTA */}
+              <div className="relative z-10 text-center px-4">
+                <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-4 drop-shadow-lg">
+                  آپ کے خاندان کے لئے بہتر مستقبل
+                </h2>
+                <h1 className="text-white text-5xl lg:text-7xl font-extrabold tracking-wide drop-shadow-lg mb-8">
+                  Kunjwal City
+                </h1>
+
+                {/* CTA Button */}
+                <button
+                  onClick={handleScroll}
+                  className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-8 py-4 rounded-full shadow-lg transition-all duration-300"
+                >
+                  Schedule Visit
+                </button>
+              </div>
             </div>
           </div>
         ))}
