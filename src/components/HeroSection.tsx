@@ -68,7 +68,7 @@ const HeroSection = () => {
               {/* Centered Text & CTA */}
               <div className="relative z-10 text-center px-4">
                 <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-4 drop-shadow-lg">
-                  آپ کے خاندان کے لئے بہتر مستقبل
+Building dreams, Securing tomorrow!
                 </h2>
                 <h1 className="text-white text-5xl lg:text-7xl font-extrabold tracking-wide drop-shadow-lg mb-8">
                   Kunjwal City
