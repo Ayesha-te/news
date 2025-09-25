@@ -9,21 +9,19 @@ import hero2 from "../assets/inf_204_kohat-sports-complex-3_ih.jpg";
 import hero3 from "../assets/New/15.jpg";
 import hero4 from "../assets/hero-background.jpg";
 
-// Custom Next Arrow
+// Arrows
 const NextArrow = ({ onClick }: any) => (
   <button
     onClick={onClick}
-    className="absolute right-6 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full"
+    className="absolute right-6 top-1/2 -translate-y-1/2 z-20 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full transition duration-300"
   >
     <FaChevronRight size={20} />
   </button>
 );
-
-// Custom Prev Arrow
 const PrevArrow = ({ onClick }: any) => (
   <button
     onClick={onClick}
-    className="absolute left-6 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full"
+    className="absolute left-6 top-1/2 -translate-y-1/2 z-20 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full transition duration-300"
   >
     <FaChevronLeft size={20} />
   </button>
@@ -34,7 +32,7 @@ const HeroSection = () => {
     dots: true,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 4000, // 5s
+    autoplaySpeed: 4000,
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -48,39 +46,46 @@ const HeroSection = () => {
 
   const handleScroll = () => {
     const section = document.getElementById("register");
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
+    if (section) section.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden font-['Inter']">
       <Slider {...settings}>
         {images.map((img, index) => (
           <div key={index}>
             <div
-              className="min-h-screen bg-cover bg-center flex items-center justify-center relative"
+              className="min-h-screen bg-cover bg-center flex items-center justify-start relative"
               style={{ backgroundImage: `url(${img})` }}
             >
               {/* Overlay */}
-              <div className="absolute inset-0 bg-black/40"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/20"></div>
 
-              {/* Centered Text & CTA */}
-              <div className="relative z-10 text-center px-4">
-                <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-4 drop-shadow-lg">
-Building dreams, Securing tomorrow!
-                </h2>
-                <h1 className="text-white text-5xl lg:text-7xl font-extrabold tracking-wide drop-shadow-lg mb-8">
+              {/* Text */}
+              <div className="relative z-10 text-left px-6 md:px-12 max-w-2xl ml-12 animate-fadeInUp">
+                <h1 className="text-white font-extrabold leading-tight mb-4 text-[clamp(40px,6vw,80px)] tracking-wide drop-shadow-[0_4px_15px_rgba(0,0,0,0.8)]">
                   Kunjwal City
                 </h1>
 
-                {/* CTA Button */}
+                <p className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 bg-clip-text text-transparent text-[clamp(20px,3vw,32px)] font-bold uppercase tracking-wide drop-shadow-[0_0_25px_rgba(234,179,8,0.6)] mb-8">
+                  Building Dreams, Securing Tomorrow!
+                </p>
+
                 <button
                   onClick={handleScroll}
-                  className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-8 py-4 rounded-full shadow-lg transition-all duration-300"
+                  className="relative overflow-hidden bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-600 text-white font-bold uppercase tracking-wider px-10 py-4 rounded-xl shadow-lg transition-all duration-300 min-w-[220px]
+                  hover:from-yellow-400 hover:to-yellow-500 hover:shadow-2xl hover:-translate-y-1"
                 >
-                  Schedule Visit
+                  Schedule Site Visit
                 </button>
+
+                {/* Accent */}
+                <div className="flex items-center gap-4 mt-10">
+                  <div className="w-16 h-[3px] bg-gradient-to-r from-yellow-400 to-transparent"></div>
+                  <span className="text-sm text-white/80 uppercase tracking-widest">
+                    Premium Living
+                  </span>
+                </div>
               </div>
             </div>
           </div>
