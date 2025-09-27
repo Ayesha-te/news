@@ -35,10 +35,7 @@ const VideoSection = () => {
             
 
             {/* YouTube Actions */}
-            <div className="absolute top-6 right-6 flex space-x-3">
-              <button className="text-white/80 hover:text-white text-sm">Watch Later</button>
-              <button className="text-white/80 hover:text-white text-sm">Share</button>
-            </div>
+           
           </div>
         </div>
       </div>
