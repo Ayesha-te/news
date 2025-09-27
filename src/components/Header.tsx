@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'; // Use Link for client-side routing
+import { HiMenu, HiX } from 'react-icons/hi'; // Import hamburger and close icons
 import logo from '@/assets/logo.png'; // Replace with your actual logo path
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,13 +16,37 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (mobileMenuOpen && !target.closest('.mobile-menu') && !target.closest('.hamburger-button')) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    if (mobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [mobileMenuOpen]);
+
   const handleNavClick = (id: string) => {
     if (id === 'top') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      setMobileMenuOpen(false); // Close mobile menu after navigation
       return;
     }
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setMobileMenuOpen(false); // Close mobile menu after navigation
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
   return (
@@ -44,6 +70,7 @@ const Header = () => {
 
           {/* Navigation */}
           <div className="ml-auto flex items-center gap-x-8">
+            {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
               <button onClick={() => handleNavClick('top')} className="text-white hover:text-red-500 transition-colors font-medium">
                 Home
@@ -63,11 +90,65 @@ const Header = () => {
               <button onClick={() => handleNavClick('video')} className="text-white hover:text-red-500 transition-colors font-medium">
                 Video
               </button>
-             
             </nav>
+
+            {/* Mobile Hamburger Button */}
+            <button
+              onClick={toggleMobileMenu}
+              className="hamburger-button lg:hidden text-white hover:text-red-500 transition-colors p-2"
+              aria-label="Toggle mobile menu"
+            >
+              {mobileMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden fixed inset-0 z-40 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="mobile-menu fixed top-20 left-0 right-0 bg-[#0a0a0a] border-t border-gray-800 animate-in slide-in-from-top duration-300">
+            <nav className="flex flex-col py-4">
+              <button 
+                onClick={() => handleNavClick('top')} 
+                className="text-white hover:text-red-500 hover:bg-gray-900 transition-colors font-medium px-6 py-4 text-left border-b border-gray-800"
+              >
+                Home
+              </button>
+              <button 
+                onClick={() => handleNavClick('about')} 
+                className="text-white hover:text-red-500 hover:bg-gray-900 transition-colors font-medium px-6 py-4 text-left border-b border-gray-800"
+              >
+                About
+              </button>
+              <button 
+                onClick={() => handleNavClick('kunjwal')} 
+                className="text-white hover:text-red-500 hover:bg-gray-900 transition-colors font-medium px-6 py-4 text-left border-b border-gray-800"
+              >
+                Kunjwal
+              </button>
+              <button 
+                onClick={() => handleNavClick('amenities')} 
+                className="text-white hover:text-red-500 hover:bg-gray-900 transition-colors font-medium px-6 py-4 text-left border-b border-gray-800"
+              >
+                Amenities
+              </button>
+              <button 
+                onClick={() => handleNavClick('register')} 
+                className="text-white hover:text-red-500 hover:bg-gray-900 transition-colors font-medium px-6 py-4 text-left border-b border-gray-800"
+              >
+                Register
+              </button>
+              <button 
+                onClick={() => handleNavClick('video')} 
+                className="text-white hover:text-red-500 hover:bg-gray-900 transition-colors font-medium px-6 py-4 text-left"
+              >
+                Video
+              </button>
+            </nav>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
