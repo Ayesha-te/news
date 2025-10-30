@@ -13,7 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
-    name: "",      // ✅ backend expects this
+    name: "",
     phone: "",
     email: "",
     city: "",
@@ -154,22 +154,21 @@ const RegistrationForm = () => {
             {errors.country && <p className="text-red-500 text-sm">{errors.country}</p>}
           </div>
 
-          {/* City (Only if Pakistan) */}
-          {formData.country === "pakistan" && (
-            <div className="space-y-2">
-              <Label htmlFor="city" className="text-lg text-primary font-medium">
-                City *
-              </Label>
-              <Input
-                id="city"
-                type="text"
-                value={formData.city}
-                onChange={(e) => handleChange("city", e.target.value)}
-                className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none text-black"
-              />
-              {errors.city && <p className="text-red-500 text-sm">{errors.city}</p>}
-            </div>
-          )}
+          {/* City (visible always, required if Pakistan) */}
+          <div className="space-y-2">
+            <Label htmlFor="city" className="text-lg text-primary font-medium">
+              City {formData.country === "pakistan" && "*"}
+            </Label>
+            <Input
+              id="city"
+              type="text"
+              value={formData.city}
+              onChange={(e) => handleChange("city", e.target.value)}
+              className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none text-black"
+              placeholder="Enter your city"
+            />
+            {errors.city && <p className="text-red-500 text-sm">{errors.city}</p>}
+          </div>
 
           {/* Message */}
           <div className="space-y-2">
@@ -185,7 +184,7 @@ const RegistrationForm = () => {
             {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
           </div>
 
-          {/* Submit Button */}
+          {/* Submit */}
           <div className="pt-8">
             <Button
               type="submit"
