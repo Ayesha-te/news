@@ -82,7 +82,7 @@ const RegistrationForm = () => {
   return (
     <section id="register" className="py-20 bg-slate-100 scroll-mt-24">
       <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
-        <h2 className="text-4xl lg:text-5xl font-bold text-primary text-center mb-12">
+        <h2 className="text-4xl lg:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-[#b38c2e] to-[#e4c152] bg-clip-text text-transparent">
           Register Your Interest
         </h2>
 
@@ -90,7 +90,7 @@ const RegistrationForm = () => {
           {/* Full Name & Phone */}
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-2">
-              <Label htmlFor="name" className="text-lg text-primary font-medium">
+              <Label htmlFor="name" className="text-lg font-medium text-[#b38c2e]">
                 Full name *
               </Label>
               <Input
@@ -98,13 +98,13 @@ const RegistrationForm = () => {
                 type="text"
                 value={formData.name}
                 onChange={(e) => handleChange("name", e.target.value)}
-                className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none text-black"
+                className="bg-transparent border-[#b38c2e]/30 border-b-2 border-t-0 border-x-0 rounded-none text-black"
               />
               {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="phone" className="text-lg text-primary font-medium">
+              <Label htmlFor="phone" className="text-lg font-medium text-[#b38c2e]">
                 Phone No. *
               </Label>
               <Input
@@ -112,7 +112,7 @@ const RegistrationForm = () => {
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => handleChange("phone", e.target.value)}
-                className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none text-black"
+                className="bg-transparent border-[#b38c2e]/30 border-b-2 border-t-0 border-x-0 rounded-none text-black"
               />
               {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
             </div>
@@ -120,7 +120,7 @@ const RegistrationForm = () => {
 
           {/* Email */}
           <div className="space-y-2">
-            <Label htmlFor="email" className="text-lg text-primary font-medium">
+            <Label htmlFor="email" className="text-lg font-medium text-[#b38c2e]">
               Email Address *
             </Label>
             <Input
@@ -128,18 +128,18 @@ const RegistrationForm = () => {
               type="email"
               value={formData.email}
               onChange={(e) => handleChange("email", e.target.value)}
-              className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none text-black"
+              className="bg-transparent border-[#b38c2e]/30 border-b-2 border-t-0 border-x-0 rounded-none text-black"
             />
             {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
           </div>
 
           {/* Country */}
           <div className="space-y-2">
-            <Label htmlFor="country" className="text-lg text-primary font-medium">
+            <Label htmlFor="country" className="text-lg font-medium text-[#b38c2e]">
               Country *
             </Label>
             <Select onValueChange={(value) => handleChange("country", value)} value={formData.country}>
-              <SelectTrigger className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none text-black">
+              <SelectTrigger className="bg-transparent border-[#b38c2e]/30 border-b-2 border-t-0 border-x-0 rounded-none text-black">
                 <SelectValue placeholder="Select Country" />
               </SelectTrigger>
               <SelectContent className="bg-card border-border text-white">
@@ -154,9 +154,9 @@ const RegistrationForm = () => {
             {errors.country && <p className="text-red-500 text-sm">{errors.country}</p>}
           </div>
 
-          {/* City (visible always, required if Pakistan) */}
+          {/* City */}
           <div className="space-y-2">
-            <Label htmlFor="city" className="text-lg text-primary font-medium">
+            <Label htmlFor="city" className="text-lg font-medium text-[#b38c2e]">
               City {formData.country === "pakistan" && "*"}
             </Label>
             <Input
@@ -164,7 +164,7 @@ const RegistrationForm = () => {
               type="text"
               value={formData.city}
               onChange={(e) => handleChange("city", e.target.value)}
-              className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none text-black"
+              className="bg-transparent border-[#b38c2e]/30 border-b-2 border-t-0 border-x-0 rounded-none text-black"
               placeholder="Enter your city"
             />
             {errors.city && <p className="text-red-500 text-sm">{errors.city}</p>}
@@ -172,24 +172,24 @@ const RegistrationForm = () => {
 
           {/* Message */}
           <div className="space-y-2">
-            <Label htmlFor="message" className="text-lg text-primary font-medium">
+            <Label htmlFor="message" className="text-lg font-medium text-[#b38c2e]">
               Message *
             </Label>
             <Textarea
               id="message"
               value={formData.message}
               onChange={(e) => handleChange("message", e.target.value)}
-              className="bg-transparent border-primary/30 border-b-2 border-t-0 border-x-0 rounded-none min-h-[100px] resize-none text-black"
+              className="bg-transparent border-[#b38c2e]/30 border-b-2 border-t-0 border-x-0 rounded-none min-h-[100px] resize-none text-black"
             />
             {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
           </div>
 
           {/* Submit */}
-          <div className="pt-8">
+          <div className="pt-8 text-center">
             <Button
               type="submit"
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-4 text-lg font-medium shadow-gold"
+              className="bg-gradient-to-r from-[#b38c2e] to-[#e4c152] hover:from-[#e4c152] hover:to-[#b38c2e] text-white px-12 py-4 text-lg font-medium rounded-xl shadow-[0_0_20px_rgba(227,193,82,0.4)] transition-all duration-300"
             >
               Submit
             </Button>

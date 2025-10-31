@@ -42,7 +42,7 @@ const HeroSection = () => {
     prevArrow: <PrevArrow />,
   };
 
-  const images = [hero1, hero2, hero3, hero4];
+  const images = [hero1, hero3, hero4];
 
   const handleScroll = () => {
     const section = document.getElementById("register");
