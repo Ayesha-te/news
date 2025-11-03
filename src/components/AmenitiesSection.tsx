@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
-import kunjwalImage from "@/assets/hero-background.jpg";
+
 import gated from "@/assets/IMG-20250920-WA0010.jpg";
 import Mosque from "@/assets/IMG-20250920-WA0012.jpg";
 import play from "@/assets/IMG-20250920-WA0018.jpg";
-import sports from "@/assets/inf_204_kohat-sports-complex-3_ih.jpg";
+
 import security from "@/assets/closed-circuit-security-cameras.jpg";
 import park from "@/assets/images.jpg";
 
@@ -11,8 +11,6 @@ const amenities = [
   { title: 'Gated Community', img: gated, key: 'gated-community' },
   { title: 'Grand Mosque', img: Mosque, key: 'grand-mosque' },
   { title: 'Kids Play Area', img: play, key: 'kids-play-area' },
-  { title: 'Shopping Mall', img: kunjwalImage, key: 'shopping-mall' },
-  { title: 'Sports Complex', img: sports, key: 'sports-complex' },
   { title: '24/7 Security', img: security, key: 'security' },
   { title: 'Park', img: park, key: 'park' },
 ];
