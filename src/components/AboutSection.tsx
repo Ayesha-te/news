@@ -1,15 +1,17 @@
 import React from "react";
-import placeholderImage from "@/assets/ays.png"; // replace with your image later
+import placeholderImage from "@/assets/he.jpg"; // replace with your image later
 
 const AboutSection = () => {
   return (
     <section id="about" className="relative py-16 bg-[#014b76] scroll-mt-24">
       <div className="container mx-auto px-6 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
         {/* Left Content */}
         <div>
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-[#b38c2e] to-[#e4c152] bg-clip-text text-transparent">
             AYS Developers (Pvt.) Ltd Building Trust, Creating Value
           </h2>
+
           <p className="text-white leading-relaxed space-y-4">
             Kunjwal City, Gujrat is proudly developed by{" "}
             <span className="text-[#e4c152] font-semibold">
@@ -35,13 +37,14 @@ const AboutSection = () => {
         </div>
 
         {/* Right Image */}
-        <div className="relative w-full h-[200px] lg:h-[300px] overflow-hidden rounded-xl shadow-[0_0_20px_rgba(227,193,82,0.4)]">
+        <div className="relative w-full overflow-hidden rounded-xl shadow-[0_0_20px_rgba(227,193,82,0.4)] flex justify-center">
           <img
             src={placeholderImage}
             alt="Kunjwal City"
-            className="w-full h-full object-cover"
+            className="object-contain w-auto h-auto max-w-full max-h-full"
           />
         </div>
+
       </div>
     </section>
   );

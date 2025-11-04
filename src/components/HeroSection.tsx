@@ -67,17 +67,20 @@ const HeroSection = () => {
                   Kunjwal City
                 </h1>
 
-                <p className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 bg-clip-text text-transparent text-[clamp(20px,3vw,32px)] font-bold uppercase tracking-wide drop-shadow-[0_0_25px_rgba(234,179,8,0.6)] mb-8">
-                  Building Dreams, Securing Tomorrow!
-                </p>
+         <p className="bg-gradient-to-r from-[#e4c152] via-[#e4c152] to-[#e4c152] bg-clip-text text-transparent text-[clamp(20px,3vw,32px)] font-bold uppercase tracking-wide drop-shadow-[0_0_25px_rgba(228,193,82,0.6)] mb-8">
+  Building Dreams, Securing Tomorrow!
+</p>
 
-                <button
-                  onClick={handleScroll}
-                  className="relative overflow-hidden bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-600 text-white font-bold uppercase tracking-wider px-10 py-4 rounded-xl shadow-lg transition-all duration-300 min-w-[220px]
-                  hover:from-yellow-400 hover:to-yellow-500 hover:shadow-2xl hover:-translate-y-1"
-                >
-                  Schedule Site Visit
-                </button>
+
+
+               <button
+  onClick={handleScroll}
+  className="relative overflow-hidden bg-gradient-to-r from-[#b38c2e] via-[#b38c2e] to-[#b38c2e] text-white font-bold uppercase tracking-wider px-10 py-4 rounded-xl shadow-lg transition-all duration-300 min-w-[220px]
+  hover:from-[#b38c2e] hover:to-[#b38c2e] hover:shadow-2xl hover:-translate-y-1"
+>
+  Schedule Site Visit
+</button>
+
 
                 {/* Accent */}
                 <div className="flex items-center gap-4 mt-10">
