@@ -63,13 +63,18 @@ const Header = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img
-              src={logo}
-              alt="Kunjwal City Logo"
-              className="w-24 h-24 object-contain"
-            />
-          </Link>
+          {/* Logo */}
+<button
+  onClick={() => handleNavClick('top')}
+  className="flex items-center"
+>
+  <img
+    src={logo}
+    alt="Kunjwal City Logo"
+    className="w-24 h-24 object-contain"
+  />
+</button>
+
 
           {/* Navigation */}
           <div className="ml-auto flex items-center gap-x-8">
